@@ -20,7 +20,7 @@ def list(request):
 
     # The different transformations to present
     samples = [
-        dict(crop="fill", radius=10),
+        {'crop': "fill", 'radius': 10},
         dict(crop="scale"),
         dict(crop="fit", format="png"),
         dict(crop="thumb", gravity="face"),
@@ -64,6 +64,8 @@ def upload(request):
         if form.is_valid():
             # Uploads image and creates a model instance for it
             form.save()
+        else:
+            context['posted'].errors = form.errors
 
     return render(request, 'upload.html', context)
 
