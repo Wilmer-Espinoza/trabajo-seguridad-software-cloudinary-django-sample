@@ -10,6 +10,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    env:
+      CLOUDINARY_CLOUD_NAME: demo
+      CLOUDINARY_API_KEY: 123456789
+      CLOUDINARY_API_SECRET: 123456789
+      SECRET_KEY: github-actions-secret-key
+      DEBUG: "False"
+
     steps:
       - name: Descargar el código del repositorio
         uses: actions/checkout@v4
